@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Junction_Simulator_CMD
+namespace Junction_Simulator_CMD_ver2
 {
     class Program
     {

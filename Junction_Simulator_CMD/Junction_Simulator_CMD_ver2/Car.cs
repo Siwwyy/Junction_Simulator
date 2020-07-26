@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Junction_Simulator_CMD
+namespace Junction_Simulator_CMD_ver2
 {
     class Car
     {
@@ -30,7 +30,20 @@ namespace Junction_Simulator_CMD
             this.pos_y = pos_y;
         }
 
-      
+
+        public void Draw_Car()
+        {
+            Console.SetCursorPosition(this.pos_x, this.pos_y);
+            Console.Write("=>");
+            Console.SetCursorPosition(0, 0);
+        }
+
+        public void Erase_Car()
+        {
+            Console.SetCursorPosition(this.pos_x, this.pos_y);
+            Console.Write(" ");
+            Console.SetCursorPosition(0, 0);
+        }
 
         public string Car_name { get => car_name; set => car_name = value; }
         public int Car_id { get => car_id; set => car_id = value; }
