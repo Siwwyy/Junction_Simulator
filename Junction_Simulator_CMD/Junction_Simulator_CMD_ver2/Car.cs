@@ -34,7 +34,7 @@ namespace Junction_Simulator_CMD_ver2
         public void Draw_Car()
         {
             Console.SetCursorPosition(this.pos_x, this.pos_y);
-            Console.Write("=>");
+            Console.Write(">");
             Console.SetCursorPosition(0, 0);
         }
 

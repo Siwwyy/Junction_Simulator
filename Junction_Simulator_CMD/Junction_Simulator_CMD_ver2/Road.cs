@@ -31,7 +31,7 @@ namespace Junction_Simulator_CMD_ver2
             Console.SetCursorPosition(0, 0);
         }
 
-        private void Draw_Pederastian_Crossing(int initial_x, int initial_y, string sign, int height)
+        private void Draw_Pedestrians_Crossing(int initial_x, int initial_y, string sign, int height)
         {
             for (uint i = 0; i < height; ++i)
             {
@@ -42,7 +42,7 @@ namespace Junction_Simulator_CMD_ver2
             Console.SetCursorPosition(0, 0);
         }
 
-        public void Draw_Road_Pederastian_Crossing()
+        public void Draw_Road_Pedestrians_Crossing()
         {
             for (uint i = 0; i < this.height; ++i)
             {
@@ -56,9 +56,9 @@ namespace Junction_Simulator_CMD_ver2
                 }
             }
 
-            int pederastian_crossing_height = 6;
+            int Pedestrians_crossing_height = 6;
 
-            Draw_Pederastian_Crossing((int)(this.width / 2), (int)(this.height / 2) - (int)(pederastian_crossing_height / 2), "___", pederastian_crossing_height);
+            Draw_Pedestrians_Crossing((int)(this.width / 2), (int)(this.height / 2) - (int)(Pedestrians_crossing_height / 2), "___", Pedestrians_crossing_height);
         }
 
        
