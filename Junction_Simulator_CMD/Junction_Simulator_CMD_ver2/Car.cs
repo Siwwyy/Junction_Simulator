@@ -30,17 +30,7 @@ namespace Junction_Simulator_CMD
             this.pos_y = pos_y;
         }
 
-        public void Draw_Car()
-        {
-            Console.SetCursorPosition(this.pos_x, this.pos_y);
-            Console.Write("0");
-        }
-
-        public void Erase_Car()
-        {
-            Console.SetCursorPosition(this.pos_x, this.pos_y);
-            Console.Write(" ");
-        }
+      
 
         public string Car_name { get => car_name; set => car_name = value; }
         public int Car_id { get => car_id; set => car_id = value; }

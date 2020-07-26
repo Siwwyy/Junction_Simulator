@@ -23,68 +23,88 @@ namespace Junction_Simulator_CMD
 
         public void Draw()
         {
+            //for (uint i = 0; i < this.height; ++i)
+            //{
+            //    //HORIZONTAL DRAWING
+            //    if ((i == (uint)(this.height / 2) - 2 || i == (uint)(this.height / 2) + 2))
+            //    {
+            //        for (uint j = 0; j < this.width; ++j)
+            //        {
+            //            Console.Write("=");
+            //        }
+            //        Console.Write("\n");
+            //    }
+            //    else if (i == (uint)(this.height / 2))
+            //    {
+            //        for (uint j = 0; j < this.width; ++j)
+            //        {
+            //            Console.Write("-");
+            //        }
+            //        Console.Write("\n");
+
+            //    }
+            //    //else
+            //    //{
+            //    //    //Console.Write("-\n");
+            //    //    Console.Write("\n");
+            //    //}
+            //    //VERTICAL DRAWING
+            //    else
+            //    {
+            //        //for (uint j = 0; j < this.width; ++j)
+            //        //{
+            //        //    if (j == (uint)(this.width / 2) - 4 || j == (uint)(this.width / 2) + 4)
+            //        //    {
+            //        //        Console.Write("|");
+            //        //    }
+            //        //    else if (j == (uint)(this.width / 2))
+            //        //    {
+            //        //        Console.Write("'");
+            //        //    }
+            //        //    else
+            //        //    {
+            //        //        Console.Write(" ");
+            //        //    }
+            //        //}
+            //        Console.Write("\n");
+            //    }
+            //    //else
+            //    //{
+            //    //    Console.Write("\n");
+            //    //}
+            //    //else if (i == (uint)(this.height / 2))
+            //    //{
+            //    //    for (uint j = 0; j < this.width; ++j)
+            //    //    {
+            //    //        Console.Write("-");
+            //    //    }
+            //    //    Console.Write("\n");
+
+            //    //}
+
+            //}
+
             for (uint i = 0; i < this.height; ++i)
             {
-                //HORIZONTAL DRAWING
                 if ((i == (uint)(this.height / 2) - 2 || i == (uint)(this.height / 2) + 2))
                 {
-                    for (uint j = 0; j < this.width; ++j)
-                    {
-                        Console.Write("=");
-                    }
-                    Console.Write("\n");
+                    Draw_Row(0, (int)i, "=");
                 }
-                else if (i == (uint)(this.height / 2))
+                else if(i == (uint)(this.height / 2))
                 {
-                    for (uint j = 0; j < this.width; ++j)
-                    {
-                        Console.Write("-");
-                    }
-                    Console.Write("\n");
-
+                    Draw_Row(0, (int)i, "-");
                 }
-                //else
-                //{
-                //    //Console.Write("-\n");
-                //    Console.Write("\n");
-                //}
-                //VERTICAL DRAWING
-                else
-                {
-                    for (uint j = 0; j < this.width; ++j)
-                    {
-                        if (j == (uint)(this.width / 2) - 4 || j == (uint)(this.width / 2) + 4)
-                        {
-                            Console.Write("|");
-                        }
-                        else if (j == (uint)(this.width / 2))
-                        {
-                            Console.Write("'");
-                        }
-                        else
-                        {
-                            Console.Write(" ");
-                        }
-                    }
-                    Console.Write("\n");
-                }
-                //else
-                //{
-                //    Console.Write("\n");
-                //}
-                //else if (i == (uint)(this.height / 2))
-                //{
-                //    for (uint j = 0; j < this.width; ++j)
-                //    {
-                //        Console.Write("-");
-                //    }
-                //    Console.Write("\n");
-
-                //}
-
             }
         }
 
+        private void Draw_Row(int initial_x, int initial_y, string sign)
+        {
+            Console.SetCursorPosition(initial_x, initial_y);
+            for (uint i = 0; i < this.width; ++i)
+            {
+                Console.Write(sign);
+            }
+        }
         public int Width { get => width; set => width = value; }
         public int Height { get => height; set => height = value; }
     }
