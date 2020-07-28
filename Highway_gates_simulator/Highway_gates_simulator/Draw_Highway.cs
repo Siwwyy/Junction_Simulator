@@ -33,6 +33,24 @@ namespace Highway_gates_simulator
             }
         }
 
+        public void Draw_Gate(int size)
+        {
+            lock (Draw_Locker)
+            {
+                for(int i = 0; i < size; ++i)
+                {
+                    Console.SetCursorPosition(this.width + 10, this.height + 2 * i + i);
+                    Console.Write("---");
+                    Console.SetCursorPosition(this.width + 13, this.height + 2 * i + i + 1);
+                    Console.Write("|");
+                    Console.SetCursorPosition(this.width + 10, this.height + 2 * i + i + 2);
+                    Console.Write("---");
+                }
+
+                Console.SetCursorPosition(0, 0);
+            }
+        }
+
         public void Draw_Object(int initial_x, int initial_y, char sign)
         {
             lock (Draw_Locker)
@@ -45,6 +63,20 @@ namespace Highway_gates_simulator
             //Console.Write(sign);
             //Console.SetCursorPosition(0, 0);
         }
+
+        public void Erase_Object(int initial_x, int initial_y)
+        {
+            lock (Draw_Locker)
+            {
+                Console.SetCursorPosition(initial_x, initial_y);
+                Console.Write(' ');
+                Console.SetCursorPosition(0, 0);
+            }
+            //Console.SetCursorPosition(initial_x, initial_y);
+            //Console.Write(sign);
+            //Console.SetCursorPosition(0, 0);
+        }
+
 
         private void Draw_Road_Line(int initial_x, int initial_y)
         {
@@ -94,5 +126,6 @@ namespace Highway_gates_simulator
 
         public int Width { get => width; set => width = value; }
         public int Height { get => height; set => height = value; }
+        public int Amount_of_lines { get => amount_of_lines; set => amount_of_lines = value; }
     }
 }
