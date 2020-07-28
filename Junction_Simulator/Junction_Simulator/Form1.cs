@@ -16,5 +16,10 @@ namespace Junction_Simulator
         {
             InitializeComponent();
         }
+
+        private void Main_Form_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
