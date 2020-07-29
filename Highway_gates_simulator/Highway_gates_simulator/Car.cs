@@ -49,5 +49,6 @@ namespace Highway_gates_simulator
         public int Pos_x { get => pos_x; set => pos_x = value; }
         public int Pos_y { get => pos_y; set => pos_y = value; }
         public bool Stop { get => stop; set => stop = value; }
+        public int Car_id { get => car_id; set => car_id = value; }
     }
 }

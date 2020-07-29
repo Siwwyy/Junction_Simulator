@@ -10,7 +10,12 @@ namespace Highway_gates_simulator
         private int width, height;
         private int amount_of_lines;
 
-        private readonly object Draw_Locker = new object();
+        private static readonly object Draw_Locker = new object();
+
+        public Draw_Highway()
+        {
+
+        }
         public Draw_Highway(int width, int height)
         {
             this.width = width;
@@ -32,12 +37,20 @@ namespace Highway_gates_simulator
                 }
             }
         }
-
+        public void Draw_Message(int initial_x, int initial_y, string message)
+        {
+            lock (Draw_Locker)
+            {
+                Console.SetCursorPosition(initial_x, initial_y);
+                Console.Write(message);
+                Console.SetCursorPosition(0, 0);
+            }
+        }
         public void Draw_Gate(int size)
         {
             lock (Draw_Locker)
             {
-                for(int i = 0; i < size; ++i)
+                for (int i = 0; i < size; ++i)
                 {
                     Console.SetCursorPosition(this.width + 10, this.height + 2 * i + i);
                     Console.Write("---");
@@ -46,7 +59,6 @@ namespace Highway_gates_simulator
                     Console.SetCursorPosition(this.width + 10, this.height + 2 * i + i + 2);
                     Console.Write("---");
                 }
-
                 Console.SetCursorPosition(0, 0);
             }
         }

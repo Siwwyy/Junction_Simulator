@@ -100,10 +100,6 @@ namespace Highway_gates_simulator
                     for (int i = 0; i < _Engine.Car_Array.Count; ++i)
                     {
                         _Highway.Erase_Object(_Engine.Car_Array[i].Pos_x - 1, _Engine.Car_Array[i].Pos_y);
-                        if (_Engine.Car_Array[i].Pos_x > _Highway.Width - 5)
-                        {
-                            _Engine.Car_Array[i].Stop = true;
-                        }
                     }
                 }
                 //Thread.Sleep(200);
@@ -119,13 +115,21 @@ namespace Highway_gates_simulator
             {
                 lock (Car_Array_Property_Locker)
                 {
-                    if (rand.Next(1, 5) == 3)
+                    //_Engine.Semaphore();
+                    for (int i = 0; i < _Engine.Car_Array.Count; ++i)
+                    {
+                        if (_Engine.Car_Array[i].Pos_x > _Highway.Width - 5)
+                        {
+                            _Engine.Car_Array[i].Stop = true;
+                            _Engine.Take_Gate(i);
+                        }
+                    }
+
+                    if (rand.Next(1, 3) == 2)
                     {
                         _Engine.Add_Car(1);
                     }
                 }
-
-
 
                 Thread.Sleep(200);
             }
@@ -139,8 +143,7 @@ namespace Highway_gates_simulator
                 if (_Keyboard.GetCurrent_key() == ConsoleKey.Escape)
                 {
                     break_execution = false;
-                }
-                Thread.Sleep(100);
+                };
             }
         }
     }

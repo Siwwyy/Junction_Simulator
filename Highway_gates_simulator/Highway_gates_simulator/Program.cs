@@ -15,7 +15,8 @@ namespace Highway_gates_simulator
             Final_Class Final_Class_Obj = new Final_Class(60, 3);
             Final_Class_Obj.Run();
             //Draw_Highway draw = new Draw_Highway(60, 3);
-            //draw.Draw_Gate(5);
+            //draw.Draw_Gate(3);
+            //draw.Draw_Object(71, 4, '>');
             //Console.Clear();
             Console.ReadKey();
         }
